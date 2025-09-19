@@ -11,4 +11,18 @@ fun main() {
         // 언제든 <shortcut actionId="ToggleLineBreakpoint"/>을(를) 눌러 중단점을 더 추가할 수 있습니다.
         println("i = $i")
     }
+
+    println(fibonacciIterative(10))
+}
+
+fun fibonacciIterative(n: Int): List<Long> {
+    if (n <= 0) return emptyList()
+    if (n == 1) return listOf(0)
+
+    val result = mutableListOf<Long>(0, 1)
+
+    for (i in 2 until n) {
+        result.add(result[i - 1] + result[i - 2])
+    }
+    return result
 }
