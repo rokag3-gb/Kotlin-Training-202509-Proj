@@ -4,15 +4,16 @@ fun main() {
     val name = "Kotlin"
     //TIP 캐럿을 강조 표시된 텍스트에 놓고 <shortcut actionId="ShowIntentionActions"/>을(를) 누르면
     // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
-    println("Hello, " + name + "!")
+    println("Hello World, " + name + "!")
 
-    for (i in 1..5) {
-        //TIP <shortcut actionId="Debug"/>을(를) 눌러 코드 디버그를 시작하세요. 1개의 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 중단점을 설정해 드렸습니다
-        // 언제든 <shortcut actionId="ToggleLineBreakpoint"/>을(를) 눌러 중단점을 더 추가할 수 있습니다.
-        println("i = $i")
-    }
+//    for (i in 1..5) {
+//        //TIP <shortcut actionId="Debug"/>을(를) 눌러 코드 디버그를 시작하세요. 1개의 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 중단점을 설정해 드렸습니다
+//        // 언제든 <shortcut actionId="ToggleLineBreakpoint"/>을(를) 눌러 중단점을 더 추가할 수 있습니다.
+//        println("i = $i")
+//    }
 
     println(fibonacciIterative(10))
+    println(fibonacciIterative2(10))
 }
 
 fun fibonacciIterative(n: Int): List<Long> {
@@ -23,6 +24,20 @@ fun fibonacciIterative(n: Int): List<Long> {
 
     for (i in 2 until n) {
         result.add(result[i - 1] + result[i - 2])
+        println("i = $i")
+    }
+    return result
+}
+
+fun fibonacciIterative2(n: Int): List<Long> {
+    if (n <= 0) return emptyList()
+    if (n == 1) return listOf(0)
+
+    val result = mutableListOf<Long>(0, 1)
+
+    for (i in 2..n) {
+        result.add(result[i - 1] + result[i - 2])
+        println("i = $i")
     }
     return result
 }
